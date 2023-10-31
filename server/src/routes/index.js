@@ -3,7 +3,10 @@ const cors = require("cors");
 const express = require("express");
 const EndRoutes = express();
 
-const routes = [require("./empresas/GetData")];
+const routes = [
+  require("./empresas/GetData"),
+  require("./empresas/InsertData"),
+];
 
 //Validar a conexão
 connection.connect(function (err) {
@@ -21,6 +24,7 @@ EndRoutes.use(express.json());
 // Registrar as rotas
 for (const route of routes) {
   EndRoutes.use("/api/select", route);
+  EndRoutes.use("/api/insert", route);
 }
 
 module.exports = EndRoutes;

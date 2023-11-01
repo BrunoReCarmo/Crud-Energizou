@@ -1,9 +1,15 @@
-import React from 'react'
+import { Grid, GridItem } from "@chakra-ui/react";
+import { CardHero } from "../components";
+import React from "react";
 
 function Home() {
   return (
-    <h1>Home Page</h1>
-  )
+    <Grid templateColumns="repeat(6, 1fr)" gap={4}>
+      <GridItem colSpan={2}>
+        <CardHero />
+      </GridItem>
+    </Grid>
+  );
 }
 
 export default Home;

@@ -7,6 +7,7 @@ const routes = [
   require("./empresas/GetData"),
   require("./empresas/InsertData"),
   require("./empresas/DropData"),
+  require("./empresas/UpdateData"),
 ];
 
 //Validar a conexão
@@ -27,6 +28,7 @@ for (const route of routes) {
   EndRoutes.use("/api/select", route);
   EndRoutes.use("/api/insert", route);
   EndRoutes.use("/api/delete", route);
+  EndRoutes.use("/api/update", route);
 }
 
 module.exports = EndRoutes;

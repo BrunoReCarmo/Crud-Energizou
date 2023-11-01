@@ -10,6 +10,7 @@ const Sidebar = () => {
         {SideLinks.map((nav) => (
           <Stack key={nav.id}>
             <ChakraLink
+              href={nav.path}
               _hover={{ bg: "gray.800" }}
               p="4"
               my="3"

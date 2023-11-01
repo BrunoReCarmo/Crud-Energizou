@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(EndRoutes);
 
 //Bloco => Porta do Server
-const PORT = process.env.PORT || 22;
+const PORT = process.env.PORT || 3001;
 //Validação
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);

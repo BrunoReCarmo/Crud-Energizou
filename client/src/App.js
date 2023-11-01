@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <>
-      <Flex h="100vh" flexDirection="column" className="bg-slate-800">
+      <Flex flexDirection="column" className="bg-slate-800">
         <Header />
         <Flex w="100%" my="6" maxW={1200} mx="auto">
           <Sidebar />

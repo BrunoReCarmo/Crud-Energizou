@@ -9,11 +9,13 @@ function Home() {
         <CardHero />
       </GridItem>
       <GridItem colSpan={4} rowSpan={1}>
-        <CardInfo />
+        <CardInfo/>
       </GridItem>
       <GridItem colSpan={5} rowSpan={2}>
         <TableList />
       </GridItem>
+      <GridItem colSpan={1} rowSpan={1} className="bg-slate-950 rounded-lg"/>
+      <GridItem colSpan={1} rowSpan={1} className="bg-slate-950 rounded-lg"/>
     </Grid>
   );
 }

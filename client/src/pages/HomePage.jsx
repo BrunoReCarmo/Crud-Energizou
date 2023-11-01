@@ -1,5 +1,5 @@
 import { Grid, GridItem } from "@chakra-ui/react";
-import { CardHero, CardInfo, TableList } from "../components";
+import { CardHero, CardInfo, TableList, CardStats } from "../components";
 import React from "react";
 
 function Home() {
@@ -14,7 +14,9 @@ function Home() {
       <GridItem colSpan={5} rowSpan={2}>
         <TableList />
       </GridItem>
-      <GridItem colSpan={1} rowSpan={1} className="bg-slate-950 rounded-lg"/>
+      <GridItem colSpan={1} rowSpan={1} className="bg-slate-950 rounded-lg">
+        <CardStats/>
+      </GridItem>
       <GridItem colSpan={1} rowSpan={1} className="bg-slate-950 rounded-lg"/>
     </Grid>
   );

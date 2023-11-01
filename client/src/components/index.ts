@@ -4,6 +4,7 @@ import Header from "./Header";
 import CardHero from "./home/CardHero";
 import CardInfo from "./home/CardInfo";
 import TableList from "./home/TableList";
+import CardStats from "./home/CardStats";
 
 export {
     Sidebar,
@@ -11,5 +12,6 @@ export {
     //Home
     CardHero,
     CardInfo,
-    TableList
+    TableList,
+    CardStats
 }

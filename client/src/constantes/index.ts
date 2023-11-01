@@ -14,3 +14,12 @@ export const SideLinks = [
     path: "/cadastro"
   },
 ];
+
+export const ContentCardInfo = [
+ {
+  id: 1,
+  title: "Entenda mais sobre esse projeto.",
+  content: "Abaixo você pode ser redirecionado ao Linkedin do desenvolvedor ou ReadME.md do repositório GitHub.",
+  main_btn_href: "https://www.linkedin.com/in/bruno-carmo-bb7450227/"
+},
+];

@@ -13,7 +13,7 @@ function CardHero() {
   };
 
   return (
-    <div className="flex-shrink-0 m-6 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg">
+    <div className="flex-shrink-0 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg">
       <svg
         className="absolute bottom-0 left-0 mb-8"
         viewBox="0 0 375 283"

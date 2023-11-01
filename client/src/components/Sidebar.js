@@ -5,7 +5,7 @@ import { SideLinks } from "../constantes";
 
 const Sidebar = () => {
   return (
-    <Stack spacing="6" className="bg-slate-900 antialised" rounded="lg">
+    <Stack spacing="6" className="bg-slate-900 antialised mr-5" height="min-content" rounded="lg">
       <Stack>
         {SideLinks.map((nav) => (
           <Stack key={nav.id}>

@@ -23,7 +23,7 @@ const Header = () => {
       px="2"
       py="2"
       align="center"
-      boxShadow="0 1px 0 #FFF"
+      boxShadow="0 1px 0 #757575"
       color="gray.300"
       fontWeight="bold"
     >

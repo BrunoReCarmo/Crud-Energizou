@@ -14,10 +14,12 @@ function Home() {
       <GridItem colSpan={5} rowSpan={2}>
         <TableList />
       </GridItem>
+      <GridItem colSpan={1} rowSpan={1} className="rounded-lg">
+        <CardStats/>
+      </GridItem>
       <GridItem colSpan={1} rowSpan={1} className="bg-slate-950 rounded-lg">
         <CardStats/>
       </GridItem>
-      <GridItem colSpan={1} rowSpan={1} className="bg-slate-950 rounded-lg"/>
     </Grid>
   );
 }

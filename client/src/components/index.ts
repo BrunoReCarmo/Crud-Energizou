@@ -5,6 +5,7 @@ import CardHero from "./home/CardHero";
 import CardInfo from "./home/CardInfo";
 import TableList from "./home/TableList";
 import CardStats from "./home/CardStats";
+import CardGraphics from "./home/CardGraphics";
 
 export {
     Sidebar,
@@ -13,5 +14,6 @@ export {
     CardHero,
     CardInfo,
     TableList,
-    CardStats
+    CardStats,
+    CardGraphics
 }

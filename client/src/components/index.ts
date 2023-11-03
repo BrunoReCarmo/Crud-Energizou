@@ -5,6 +5,10 @@ import CardHero from "./home/CardHero";
 import CardInfo from "./home/CardInfo";
 import TableList from "./home/TableList";
 import CardStats from "./home/CardStats";
+import CardGraphics from "./home/CardGraphics";
+//Cadastro
+import Forms from "./cadastro/FormsNewData";
+import TableEdit from "./cadastro/TableEdit";
 
 export {
     Sidebar,
@@ -13,5 +17,9 @@ export {
     CardHero,
     CardInfo,
     TableList,
-    CardStats
+    CardStats,
+    CardGraphics,
+    //Cadastro
+    Forms,
+    TableEdit
 }

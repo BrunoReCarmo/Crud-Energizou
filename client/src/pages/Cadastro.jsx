@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Forms, TableEdit } from '../components';
 
 function Cadastro() {
   return (
-    <div>
-      <h1>Cadastro Page</h1>
+    <div className="py-5">
+      <Forms/>
+      <TableEdit/>
     </div>
   )
 }

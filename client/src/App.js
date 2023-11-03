@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <div className="bg-slate-800 h-screen">
       <Flex flexDirection="column" className="bg-slate-800">
         <Header />
         <Flex w="100%" my="6" maxW={1240} mx="auto">
@@ -21,7 +21,7 @@ function App() {
           </Box>
         </Flex>
       </Flex>
-    </>
+    </div>
   );
 }
 

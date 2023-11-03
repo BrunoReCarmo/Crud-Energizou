@@ -8,6 +8,7 @@ import CardStats from "./home/CardStats";
 import CardGraphics from "./home/CardGraphics";
 //Cadastro
 import Forms from "./cadastro/FormsNewData";
+import TableEdit from "./cadastro/TableEdit";
 
 export {
     Sidebar,
@@ -19,5 +20,6 @@ export {
     CardStats,
     CardGraphics,
     //Cadastro
-    Forms
+    Forms,
+    TableEdit
 }

@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Forms } from '../components';
 
 function Cadastro() {
   return (
     <div>
-      <h1>Cadastro Page</h1>
+      <Forms/>
     </div>
   )
 }

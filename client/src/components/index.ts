@@ -6,6 +6,8 @@ import CardInfo from "./home/CardInfo";
 import TableList from "./home/TableList";
 import CardStats from "./home/CardStats";
 import CardGraphics from "./home/CardGraphics";
+//Cadastro
+import Forms from "./cadastro/FormsNewData";
 
 export {
     Sidebar,
@@ -15,5 +17,7 @@ export {
     CardInfo,
     TableList,
     CardStats,
-    CardGraphics
+    CardGraphics,
+    //Cadastro
+    Forms
 }

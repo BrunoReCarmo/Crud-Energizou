@@ -1,0 +1,16 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+::-webkit-scrollbar {
+    width: 4px; /* Largura da barra de rolagem */
+    height: 6px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+    background: #cbcaca; /* Cor do fundo da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #545454; /* Cor da alça da barra de rolagem */
+}

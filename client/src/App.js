@@ -9,7 +9,7 @@ function App() {
     <>
       <Flex flexDirection="column" className="bg-slate-800">
         <Header />
-        <Flex w="100%" my="6" maxW={1200} mx="auto">
+        <Flex w="100%" my="6" maxW={1240} mx="auto">
           <Sidebar />
           <Box w="100%">
             <Router>

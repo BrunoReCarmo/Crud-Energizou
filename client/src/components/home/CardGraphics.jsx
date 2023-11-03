@@ -38,10 +38,10 @@ function CardGraphics() {
       datasets: [
         {
           label: "Status",
-          data: [empresasAtivas, empresasInativas], // Correção aqui
+          data: [empresasAtivas, empresasInativas],
           backgroundColor: [
-            "#03C04A",
-            "#ff2c2c",
+            "#38A169",
+            "#E53E3E",
           ],
           hoverOffset: 4,
         },
@@ -49,10 +49,28 @@ function CardGraphics() {
     };
 
     const configPie = {
-      type: "pie",
-      data: dataPie,
-      options: {},
-    };
+        type: "pie",
+        data: dataPie,
+        options: {
+          plugins: {
+            title: {
+                display: true,
+                text: "Status CNPJ",
+                color: 'white',
+                font: {
+                    size: 18,
+                }
+            },
+            legend: {
+                labels:{
+                    color: "white"
+                },
+                position: "top",
+                align: "start",
+            },
+          },
+        },
+      };  
 
     const chartPie = new Chart(document.getElementById("chartPie"), configPie);
 
@@ -62,7 +80,7 @@ function CardGraphics() {
   }, [empresasAtivas, empresasInativas]);
 
   return (
-    <div className="shadow-lg rounded-lg overflow-hidden w-[180px] flex items-center">
+    <div className="shadow-lg h-full rounded-lg overflow-hidden w-[180px] flex items-center">
       <canvas id="chartPie"></canvas>
     </div>
   );

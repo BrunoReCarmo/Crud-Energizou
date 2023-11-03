@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { routes } from "../../api";
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import { DeleteIcon, EditIcon, Search2Icon } from "@chakra-ui/icons";
 import {
   TableContainer,
   TableCaption,
@@ -190,6 +190,16 @@ function TableEdit() {
     setIsEditing(false);
   };
 
+  //Usando constante de pesquisa + PAGINAÇÃO
+  const filteredAndPagedItems = sortedItems()
+  .filter((empresa) =>
+    Object.values(empresa)
+      .join(" ")
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  )
+  .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
   return (
     <>
       <Input
@@ -234,7 +244,7 @@ function TableEdit() {
               </Tr>
             </Thead>
             <Tbody>
-              {filteredItems.map((empresa) => (
+              {filteredAndPagedItems.map((empresa) => (
                 <Tr key={empresa.id}>
                   <Td color="gray.100" borderColor="gray.800">
                     {isEditing && editedEmpresas?.id === empresa.id ? (

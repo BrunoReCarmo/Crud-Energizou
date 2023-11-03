@@ -20,6 +20,7 @@ export const ContentCardInfo = [
   id: 1,
   title: "Entenda mais sobre esse projeto.",
   content: "Abaixo você pode ser redirecionado ao Linkedin do desenvolvedor ou ReadME.md do repositório GitHub.",
-  main_btn_href: "https://www.linkedin.com/in/bruno-carmo-bb7450227/"
+  main_btn_href: "https://www.linkedin.com/in/bruno-carmo-bb7450227/",
+  second_link: "https://github.com/BrunoReCarmo/Crud-Energizou/blob/develop/README.md"
 },
 ];

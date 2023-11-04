@@ -28,6 +28,7 @@ function TableEdit() {
     direction: "ascending",
   });
   const itemsPerPage = 20;
+  const token = localStorage.getItem("token");
 
   // Definir URLs para as requisições da API
   const getEmpresasUrl = routes.empresas.get;
@@ -74,7 +75,11 @@ function TableEdit() {
     // Carregar dados das empresas ao montar o componente
     const fetchEmpresas = async () => {
       try {
-        const response = await fetch(getEmpresasUrl);
+        const response = await fetch(getEmpresasUrl, {
+          headers: {
+            Authorization: `${token}`,
+          },
+        });
         if (response.ok) {
           const data = await response.json();
           setListarEmpresas(data.rows);
@@ -119,6 +124,9 @@ function TableEdit() {
     try {
       const response = await fetch(`${dropEmpresasUrl}/${id}`, {
         method: "DELETE",
+        headers: {
+          Authorization: `${token}`,
+        },
       });
 
       if (!response.ok) {
@@ -146,6 +154,7 @@ function TableEdit() {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `${token}`,
         },
         body: JSON.stringify({
           razao_social: editedEmpresas.razao_social,

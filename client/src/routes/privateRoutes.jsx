@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { routes } from "../api";
 
 export function PrivateRoute({ children }) {
-    const [authenticated, setAuthenticated] = useState(false);
+    const [authenticated, setAuthenticated] = useState(true);
 
     const getListagemUrl = routes.empresas.get;
     const token = localStorage.getItem("token");

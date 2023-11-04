@@ -1,7 +1,8 @@
-import { token, email } from "./TokenInfos";
+import { token, email,nome } from "./TokenInfos";
 
 export {
     token,
-    email
+    email,
+    nome
 }
 export const BackendURL = "http://localhost:3001/api";

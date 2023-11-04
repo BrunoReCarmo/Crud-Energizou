@@ -4,5 +4,7 @@ import { jwtDecode } from "jwt-decode";
 export const token = localStorage.getItem("token");
 //Token => Info User
 const decodedToken = jwtDecode(token);
-//O nome do usuário
+//O email do usuário
 export const email = decodedToken.email;
+//O email do usuário
+export const nome = decodedToken.nome;

@@ -13,6 +13,7 @@ import {
   Button,
   HStack,
 } from "@chakra-ui/react";
+import { token } from "../../utils";
 
 function TableList() {
   const [listarEmpresas, setListarEmpresas] = useState([]);
@@ -20,7 +21,6 @@ function TableList() {
   const itemsPerPage = 5;
 
   const getListagemUrl = routes.empresas.get;
-  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchTipos = async () => {

@@ -1,7 +1,8 @@
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
-export function useDecodedToken() {
-    const token = localStorage.getItem("token");
-    const decodedToken = token ? jwt_decode(token) : null;
-    return decodedToken;
-}
+//Token == LocalStorage
+export const token = localStorage.getItem("token");
+//Token => Info User
+const decodedToken = jwtDecode(token);
+//O nome do usuário
+export const email = decodedToken.email;

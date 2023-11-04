@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { routes } from "../../api";
-import { DeleteIcon, EditIcon, Search2Icon } from "@chakra-ui/icons";
+import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import {
   TableContainer,
   TableCaption,
@@ -16,6 +16,7 @@ import {
   HStack,
   Checkbox,
 } from "@chakra-ui/react";
+import { token } from "../../utils";
 
 function TableEdit() {
   const [listarEmpresas, setListarEmpresas] = useState([]);
@@ -28,7 +29,6 @@ function TableEdit() {
     direction: "ascending",
   });
   const itemsPerPage = 20;
-  const token = localStorage.getItem("token");
 
   // Definir URLs para as requisições da API
   const getEmpresasUrl = routes.empresas.get;

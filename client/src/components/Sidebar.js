@@ -2,6 +2,7 @@ import React from "react";
 import { Link as ChakraLink, Stack, Text } from "@chakra-ui/react";
 import { Box, Icon, Avatar, Heading } from "@chakra-ui/react";
 import { SideLinks } from "../constantes";
+import { email } from "../utils";
 
 const Sidebar = () => {
   return (
@@ -16,7 +17,7 @@ const Sidebar = () => {
           <Avatar name="Bruno Carmo" size="lg" />
         </Box>
         <Box display="flex" justifyContent="center">
-          <Heading size="sm" color="gray.300">Bruno Carmo</Heading>
+          <Heading size="sm" color="gray.300">{email}</Heading>
         </Box>
       </Stack>
       <Stack>

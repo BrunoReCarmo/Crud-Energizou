@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { routes } from "../../api";
+import { token } from "../../utils";
 
 function CardStats() {
   const [listarEmpresas, setListarEmpresas] = useState([]);
-  const token = localStorage.getItem("token");
   const getListagemUrl = routes.empresas.get;
 
   useEffect(() => {

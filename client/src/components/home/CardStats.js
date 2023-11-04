@@ -3,13 +3,17 @@ import { routes } from "../../api";
 
 function CardStats() {
   const [listarEmpresas, setListarEmpresas] = useState([]);
-
+  const token = localStorage.getItem("token");
   const getListagemUrl = routes.empresas.get;
 
   useEffect(() => {
     const fetchTipos = async () => {
       try {
-        const response = await fetch(getListagemUrl);
+        const response = await fetch(getListagemUrl, {
+          headers: {
+            Authorization: `${token}`,
+          },
+        });
         if (response.ok) {
           const data = await response.json();
           setListarEmpresas(data.rows.length);

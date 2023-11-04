@@ -20,11 +20,16 @@ function TableList() {
   const itemsPerPage = 5;
 
   const getListagemUrl = routes.empresas.get;
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchTipos = async () => {
       try {
-        const response = await fetch(getListagemUrl);
+        const response = await fetch(getListagemUrl, {
+          headers: {
+            Authorization: `${token}`,
+          },
+        });
         if (response.ok) {
           const data = await response.json();
           setListarEmpresas(data.rows);

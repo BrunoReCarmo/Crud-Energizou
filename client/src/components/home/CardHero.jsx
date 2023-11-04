@@ -1,4 +1,5 @@
 import React from "react";
+import { nome } from "../../utils";
 
 function CardHero() {
   const svgStyles = {
@@ -52,7 +53,7 @@ function CardHero() {
       <div className="relative text-white px-6 pb-6 mt-6">
         <span className="block opacity-75 -mb-1">Bem vindo,</span>
         <div className="flex justify-between">
-          <span className="block font-semibold text-xl">Bruno Carmo</span>
+          <span className="block font-semibold text-xl">{nome}</span>
           <span className="block bg-white rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
             Olá
           </span>

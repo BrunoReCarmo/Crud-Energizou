@@ -1,8 +1,9 @@
+import { SettingsIcon } from "@chakra-ui/icons";
 import {
-  Avatar,
   Flex,
   HStack,
   Text,
+  Button,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import React from "react";
@@ -30,8 +31,8 @@ const Header = () => {
       <Text>CorpHub</Text>
       <Flex ml="auto">
         <HStack>
-          <Text>Bruno Carmo</Text>
-          <Avatar size="md" name="Bruno Carmo" />
+          <SettingsIcon mr="2" />
+          <Button bg="rgb(15 23 42)" color="red">Logout</Button>
         </HStack>
       </Flex>
     </Flex>

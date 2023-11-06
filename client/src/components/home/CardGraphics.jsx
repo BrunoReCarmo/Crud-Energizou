@@ -5,13 +5,17 @@ import { routes } from '../../api';
 function CardGraphics() {
     const [empresasAtivas, setEmpresasAtivas] = useState(0);
     const [empresasInativas, setEmpresasInativas] = useState(0);
-  
     const getListagemUrl = routes.empresas.get;
   
+    const token = localStorage.getItem("token");
     useEffect(() => {
       const fetchEmpresas = async () => {
         try {
-          const response = await fetch(getListagemUrl);
+          const response = await fetch(getListagemUrl, {
+            headers: {
+              Authorization: `${token}`,
+            },
+          });
           if (response.ok) {
             const data = await response.json();
   

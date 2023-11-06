@@ -25,6 +25,7 @@ function Forms() {
   const [nomeFantasia, setNomeFantasia] = useState("");
   const [status, setStatus] = useState("0");
 
+  const token = localStorage.getItem("token");
   //Usado no Drawer
   const { isOpen, onOpen, onClose } = useDisclosure();
   const firstField = React.useRef();
@@ -43,6 +44,7 @@ function Forms() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `${token}`,
       },
       body: JSON.stringify(novosDados),
     })

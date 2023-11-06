@@ -13,13 +13,13 @@ import {
   Button,
   HStack,
 } from "@chakra-ui/react";
-import { token } from "../../utils";
 
 function TableList() {
   const [listarEmpresas, setListarEmpresas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
+  const token = localStorage.getItem("token");
   const getListagemUrl = routes.empresas.get;
 
   useEffect(() => {

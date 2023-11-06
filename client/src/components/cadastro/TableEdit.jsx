@@ -16,7 +16,6 @@ import {
   HStack,
   Checkbox,
 } from "@chakra-ui/react";
-import { token } from "../../utils";
 
 function TableEdit() {
   const [listarEmpresas, setListarEmpresas] = useState([]);
@@ -29,6 +28,8 @@ function TableEdit() {
     direction: "ascending",
   });
   const itemsPerPage = 20;
+
+  const token = localStorage.getItem("token");
 
   // Definir URLs para as requisições da API
   const getEmpresasUrl = routes.empresas.get;

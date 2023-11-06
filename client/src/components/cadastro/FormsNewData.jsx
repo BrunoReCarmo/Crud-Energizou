@@ -18,7 +18,6 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import InputMask from "react-input-mask";
-import { token } from "../../utils";
 
 function Forms() {
   const [empresaCPNJ, setEmpresaCPNJ] = useState("");
@@ -26,6 +25,7 @@ function Forms() {
   const [nomeFantasia, setNomeFantasia] = useState("");
   const [status, setStatus] = useState("0");
 
+  const token = localStorage.getItem("token");
   //Usado no Drawer
   const { isOpen, onOpen, onClose } = useDisclosure();
   const firstField = React.useRef();

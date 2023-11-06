@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { routes } from "../../api";
-import { token } from "../../utils";
 
 function CardStats() {
   const [listarEmpresas, setListarEmpresas] = useState([]);
   const getListagemUrl = routes.empresas.get;
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchTipos = async () => {

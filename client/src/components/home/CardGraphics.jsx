@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Chart from 'chart.js/auto';
 import { routes } from '../../api';
-import { token } from "../../utils";
 
 function CardGraphics() {
     const [empresasAtivas, setEmpresasAtivas] = useState(0);
     const [empresasInativas, setEmpresasInativas] = useState(0);
     const getListagemUrl = routes.empresas.get;
   
+    const token = localStorage.getItem("token");
     useEffect(() => {
       const fetchEmpresas = async () => {
         try {

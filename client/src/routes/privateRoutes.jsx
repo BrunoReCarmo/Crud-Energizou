@@ -31,5 +31,5 @@ export function PrivateRoute({ children }) {
         checkTokenValidity();
     }, [getListagemUrl, token]);
 
-    return authenticated ? children : <Navigate to="/login" />;
+    return authenticated ? children : <Navigate to="/" />;
 }

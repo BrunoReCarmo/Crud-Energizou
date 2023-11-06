@@ -1,6 +1,6 @@
 import { Home, Cadastro, Login } from "../pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { PrivateRoute } from "./privateRoutes";
+import {PrivateRoute} from "./privateRoutes";
 
 export function Rotas() {
 

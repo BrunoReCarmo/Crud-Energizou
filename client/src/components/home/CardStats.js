@@ -7,26 +7,34 @@ function CardStats() {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const fetchTipos = async () => {
+    if (token) {
       try {
-        const response = await fetch(getListagemUrl, {
-          headers: {
-            Authorization: `${token}`,
-          },
-        });
-        if (response.ok) {
-          const data = await response.json();
-          setListarEmpresas(data.rows.length);
-          console.log("Cardstats", data);
-        } else {
-          console.error("Os dados da API não são um array:");
-        }
+        const fetchTipos = async () => {
+          try {
+            const response = await fetch(getListagemUrl, {
+              headers: {
+                Authorization: `${token}`,
+              },
+            });
+            if (response.ok) {
+              const data = await response.json();
+              setListarEmpresas(data.rows.length);
+              console.log("CardStats", data);
+            } else {
+              console.error("Os dados da API não são um array:");
+            }
+          } catch (error) {
+            console.error("Erro ao buscar os dados:", error);
+          }
+        };
+
+        fetchTipos();
       } catch (error) {
-        console.error("Erro ao buscar os dados:", error);
+        console.error("Erro ao decodificar o token:", error);
       }
-    };
-    fetchTipos();
-  }, []);
+    }
+  }, [token]);
+
 
   const items = listarEmpresas;
 

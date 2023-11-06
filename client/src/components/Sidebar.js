@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link as ChakraLink, Stack, Text } from "@chakra-ui/react";
 import { Box, Icon, Avatar, Heading } from "@chakra-ui/react";
 import { SideLinks } from "../constantes";
 import { jwtDecode } from "jwt-decode";
 
-//Token == LocalStorage
-const token = localStorage.getItem("token");
-//Token => Info User
-const decodedToken = jwtDecode(token);
-//O email do usuário
-const email = decodedToken.email;
-//O email do usuário
-const nome = decodedToken.nome;
-
 const Sidebar = () => {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+
+  //Token == LocalStorage
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    try {
+      //Token => Info User
+      const decodedToken = jwtDecode(token);
+      //O email do usuário
+      const nome_decoded = decodedToken.nome;
+      const email_decoded = decodedToken.email;
+      setNome(nome_decoded);
+      setEmail(email_decoded);
+    } catch (error) {
+      console.error("Erro ao decodificar o token:", error);
+    }
+  }
+
   return (
     <Stack
       spacing="6"
@@ -22,14 +33,18 @@ const Sidebar = () => {
       rounded="lg"
     >
       <Stack my="6">
-      <Box display="flex" justifyContent="center">
+        <Box display="flex" justifyContent="center">
           <Avatar name={nome} size="lg" />
         </Box>
         <Box display="flex" justifyContent="center">
-          <Heading size="sm" color="white">{nome}</Heading>
+          <Heading size="sm" color="white">
+            {nome}
+          </Heading>
         </Box>
         <Box display="flex" justifyContent="center">
-          <Text  fontSize='13px' maxW="100%" color="white">{email}</Text>
+          <Text fontSize="13px" maxW="100%" color="white">
+            {email}
+          </Text>
         </Box>
       </Stack>
       <Stack>

@@ -3,33 +3,36 @@ import { Navigate } from "react-router-dom";
 import { routes } from "../api";
 
 export function PrivateRoute({ children }) {
-    const [authenticated, setAuthenticated] = useState(true);
-
-    const getListagemUrl = routes.empresas.get;
-    const token = localStorage.getItem("token");
+    const [authenticated, setAuthenticated] = useState(false);
 
     useEffect(() => {
+        const token = localStorage.getItem("token");
+
         const checkTokenValidity = async () => {
-            try {
-                const response = await fetch(getListagemUrl, {
-                    method: "GET",
-                    headers: {
-                        Authorization: `${token}`,
-                    },
-                });
-                if (response.ok) {
-                    setAuthenticated(true);
-                } else {
+            if (token) {
+                try {
+                    const response = await fetch(routes.empresas.get, {
+                        method: "GET",
+                        headers: {
+                            Authorization: `${token}`,
+                        },
+                    });
+                    if (response.ok) {
+                        setAuthenticated(true);
+                    } else {
+                        setAuthenticated(false);
+                    }
+                } catch (error) {
+                    console.error("Erro ao validar o token", error);
                     setAuthenticated(false);
                 }
-            } catch (error) {
-                console.error("Erro ao validar o token", error);
+            } else {
                 setAuthenticated(false);
             }
         };
 
         checkTokenValidity();
-    }, [getListagemUrl, token]);
+    }, []);
 
-    return authenticated ? children : <Navigate to="/" />;
+    return authenticated ? children : <Navigate to="/login" />;
 }

@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
-//Token == LocalStorage
-const token = localStorage.getItem("token");
-//Token => Info User
-const decodedToken = jwtDecode(token);
-//O email do usuário
-const nome = decodedToken.nome;
-
 function CardHero() {
+  const [nome, setNome] = useState("");
+
+  //Token == LocalStorage
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    try {
+      //Token => Info User
+      const decodedToken = jwtDecode(token);
+      //O email do usuário
+      const nome_decoded = decodedToken.nome;
+      setNome(nome_decoded);
+    } catch (error) {
+      console.error("Erro ao decodificar o token:", error);
+    }
+  }
+
   const svgStyles = {
     transform: "scale(1.5)",
     opacity: "0.1",

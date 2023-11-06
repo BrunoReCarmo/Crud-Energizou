@@ -63,7 +63,7 @@ const LoginForm = () => {
             setTimeout(() => {
                 localStorage.removeItem("token");
             }, expirationTime);
-            history("/"); // Redirecionamento utilizando history.push
+            history("/dashboard"); // Redirecionamento utilizando history.push
         } catch (error) {
             console.error("Erro ao fazer login", error);
         }
@@ -73,7 +73,7 @@ const LoginForm = () => {
         const checkToken = async () => {
             const token = localStorage.getItem("token");
             if (token) {
-                history("/");
+                history("/dashboard");
             }
         };
 

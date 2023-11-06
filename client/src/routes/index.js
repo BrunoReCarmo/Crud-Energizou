@@ -7,9 +7,9 @@ export function Rotas() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+            <Route path="/" element={<Login />} />
+                <Route path="/dashboard" element={<PrivateRoute><Home /></PrivateRoute>} />
                 <Route path="/cadastro" element={<PrivateRoute><Cadastro /></PrivateRoute>} />
-                <Route path="/Login" element={<Login />} />
             </Routes>
         </BrowserRouter>
     )

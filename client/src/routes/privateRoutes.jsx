@@ -35,5 +35,5 @@ export function PrivateRoute({ children }) {
         checkTokenValidity();
     }, []);
 
-    return authenticated ? children : history("/");
+    return authenticated ? children : history("/login");
 }

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { routes } from "../api";
 
 export function PrivateRoute({ children }) {
     const [authenticated, setAuthenticated] = useState(false);
+    const history = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -34,5 +35,5 @@ export function PrivateRoute({ children }) {
         checkTokenValidity();
     }, []);
 
-    return authenticated ? children : <Navigate to="/login" />;
+    return authenticated ? children : history("/");
 }

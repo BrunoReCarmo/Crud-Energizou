@@ -5,25 +5,15 @@ import { SideLinks } from "../constantes";
 import { jwtDecode } from "jwt-decode";
 
 const Sidebar = () => {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
 
   //Token == LocalStorage
   const token = localStorage.getItem("token");
 
-  if (token) {
-    try {
-      //Token => Info User
-      const decodedToken = jwtDecode(token);
-      //O email do usuário
-      const nome_decoded = decodedToken.nome;
-      const email_decoded = decodedToken.email;
-      setNome(nome_decoded);
-      setEmail(email_decoded);
-    } catch (error) {
-      console.error("Erro ao decodificar o token:", error);
-    }
-  }
+    //Token => Info User
+    const decodedToken = jwtDecode(token);
+    //O email do usuário
+    const nome = decodedToken.nome;
+    const email = decodedToken.email;
 
   return (
     <Stack

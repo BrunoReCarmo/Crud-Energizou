@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 03, 2023 at 07:57 PM
--- Server version: 5.7.24
--- PHP Version: 8.0.1
+-- Tempo de geração: 06-Nov-2023 às 17:32
+-- Versão do servidor: 5.7.24
+-- versão do PHP: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `crud_energizou`
+-- Banco de dados: `crud_energizou`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `empresas_data`
+-- Estrutura da tabela `empresas_data`
 --
 
 CREATE TABLE `empresas_data` (
@@ -37,7 +37,7 @@ CREATE TABLE `empresas_data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `empresas_data`
+-- Extraindo dados da tabela `empresas_data`
 --
 
 INSERT INTO `empresas_data` (`id`, `cnpj`, `razao_social`, `nome_fantasia`, `status`, `data_reg`) VALUES
@@ -64,25 +64,60 @@ INSERT INTO `empresas_data` (`id`, `cnpj`, `razao_social`, `nome_fantasia`, `sta
 (28, '41.991.919/9199-15', 'Cadmus Inovações S.A.', 'Cadmus Inovações', 1, '2023-11-03 14:43:39'),
 (29, '41.818.418/1051-25', 'Xianmis Contrucoes LTDA', 'Xianmis Construções e Revestimentos', 1, '2023-11-03 14:44:35');
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Estrutura da tabela `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `contato` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`id`, `nome`, `email`, `contato`, `password`) VALUES
+(1, 'Carlos Miguel Jr', 'carlos.miguel@outlook.com', '11958311555', '1234556'),
+(2, 'Lucas Calhes', 'Lucas.calhes@gmail.com', '11 97314142', 'teste123');
+
+--
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `empresas_data`
+-- Índices para tabela `empresas_data`
 --
 ALTER TABLE `empresas_data`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Índices para tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `empresas_data`
+-- AUTO_INCREMENT de tabela `empresas_data`
 --
 ALTER TABLE `empresas_data`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT de tabela `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

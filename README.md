@@ -121,6 +121,16 @@
    - No diretório do frontend, execute os comandos no terminal:
      ```bash
      npm install
+     ## Pacotes Necessários
+
+Certifique-se de ter os seguintes pacotes e dependências instalados no seu projeto:
+
+### Pacotes Necessários
+
+```bash
+# Para instalar as dependências necessárias
+npm install @testing-library/jest-dom @testing-library/react @testing-library/user-event autoprefixer dotenv postcss sass tsconfig react-router-dom
+
      npm start
      ```
    - Isso instalará as dependências necessárias e iniciará o servidor de desenvolvimento do frontend.

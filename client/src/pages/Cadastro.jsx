@@ -1,12 +1,21 @@
 import React from 'react';
-import { Forms, TableEdit } from '../components';
+import { Forms, TableEdit, Sidebar, Header } from '../components';
+import { Flex, Box } from "@chakra-ui/react";
 
 function Cadastro() {
   return (
-    <div className="py-5">
-      <Forms/>
-      <TableEdit/>
-    </div>
+    <Flex flexDirection="column" className="bg-slate-800">
+      <Header />
+      <Flex w="100%" my="6" maxW={1240} mx="auto">
+        <Sidebar />
+        <Box w="100%">
+          <div className="py-5">
+            <Forms />
+            <TableEdit />
+          </div>
+        </Box>
+      </Flex>
+    </Flex>
   )
 }
 

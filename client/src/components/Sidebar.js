@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link as ChakraLink, Stack, Text } from "@chakra-ui/react";
 import { Box, Icon, Avatar, Heading } from "@chakra-ui/react";
 import { SideLinks } from "../constantes";
+import { jwtDecode } from "jwt-decode";
 
 const Sidebar = () => {
+
+  //Token == LocalStorage
+  const token = localStorage.getItem("token");
+
+    //Token => Info User
+    const decodedToken = jwtDecode(token);
+    //O email do usuário
+    const nome = decodedToken.nome;
+    const email = decodedToken.email;
+
   return (
     <Stack
       spacing="6"
@@ -13,10 +24,17 @@ const Sidebar = () => {
     >
       <Stack my="6">
         <Box display="flex" justifyContent="center">
-          <Avatar name="Bruno Carmo" size="lg" />
+          <Avatar name={nome} size="lg" />
         </Box>
         <Box display="flex" justifyContent="center">
-          <Heading size="sm" color="gray.300">Bruno Carmo</Heading>
+          <Heading size="sm" color="white">
+            {nome}
+          </Heading>
+        </Box>
+        <Box display="flex" justifyContent="center">
+          <Text fontSize="13px" maxW="100%" color="white">
+            {email}
+          </Text>
         </Box>
       </Stack>
       <Stack>

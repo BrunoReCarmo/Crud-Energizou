@@ -40,9 +40,9 @@ function CardInfo() {
                   <Icon as={LinkedinIcon} color="blue.500" boxSize={5} />{" "}
                   Linkedin
                 </a>
-                <button className="text-base font-medium text-lightPrimary 2xl:ml-2">
-                  Watch Video
-                </button>
+                <a href={data.second_link} target="_blank" className="text-base font-medium text-white 2xl:ml-2">
+                  Ler sobre 
+                </a>
               </div>
             </div>
           ))}

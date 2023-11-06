@@ -5,32 +5,44 @@ import { routes } from '../../api';
 function CardGraphics() {
     const [empresasAtivas, setEmpresasAtivas] = useState(0);
     const [empresasInativas, setEmpresasInativas] = useState(0);
-  
     const getListagemUrl = routes.empresas.get;
   
+    const token = localStorage.getItem("token");
+
     useEffect(() => {
-      const fetchEmpresas = async () => {
+      if (token) {
         try {
-          const response = await fetch(getListagemUrl);
-          if (response.ok) {
-            const data = await response.json();
+          const fetchEmpresas = async () => {
+            try {
+              const response = await fetch(getListagemUrl, {
+                headers: {
+                  Authorization: `${token}`,
+                },
+              });
+              if (response.ok) {
+                const data = await response.json();
   
-            const ativas = data.rows.filter((empresa) => empresa.status === 1);
-            const inativas = data.rows.filter((empresa) => empresa.status === 0);
+                const ativas = data.rows.filter((empresa) => empresa.status === 1);
+                const inativas = data.rows.filter((empresa) => empresa.status === 0);
   
-            setEmpresasAtivas(ativas.length);
-            setEmpresasInativas(inativas.length);
+                setEmpresasAtivas(ativas.length);
+                setEmpresasInativas(inativas.length);
   
-            console.log("Cardstats", data);
-          } else {
-            console.error("Os dados da API não são um array.");
-          }
+                console.log("CardStats", data);
+              } else {
+                console.error("Os dados da API não são um array.");
+              }
+            } catch (error) {
+              console.error("Erro ao buscar os dados:", error);
+            }
+          };
+  
+          fetchEmpresas();
         } catch (error) {
-          console.error("Erro ao buscar os dados:", error);
+          console.error("Erro ao decodificar o token:", error);
         }
-      };
-      fetchEmpresas();
-    }, [getListagemUrl]);
+      }
+    }, [token, getListagemUrl]);
 
   useEffect(() => {
     const dataPie = {

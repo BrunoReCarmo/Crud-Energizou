@@ -19,25 +19,37 @@ function TableList() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
+  const token = localStorage.getItem("token");
   const getListagemUrl = routes.empresas.get;
 
   useEffect(() => {
-    const fetchTipos = async () => {
+    if (token) {
       try {
-        const response = await fetch(getListagemUrl);
-        if (response.ok) {
-          const data = await response.json();
-          setListarEmpresas(data.rows);
-        } else {
-          console.error("Os dados da API não são um array:");
-        }
-      } catch (error) {
-        console.error("Erro ao buscar os dados:", error);
-      }
-    };
-    fetchTipos();
-  }, []);
+        const fetchTipos = async () => {
+          try {
+            const response = await fetch(getListagemUrl, {
+              headers: {
+                Authorization: `${token}`,
+              },
+            });
+            if (response.ok) {
+              const data = await response.json();
+              setListarEmpresas(data.rows);
+              console.log("CardStats", data);
+            } else {
+              console.error("Os dados da API não são um array:");
+            }
+          } catch (error) {
+            console.error("Erro ao buscar os dados:", error);
+          }
+        };
 
+        fetchTipos();
+      } catch (error) {
+        console.error("Erro ao decodificar o token:", error);
+      }
+    }
+  }, [token]);
   const totalPages = Math.ceil(listarEmpresas.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;

@@ -40,12 +40,13 @@ function CardStats() {
   return (
     <div className="px-8 bg-slate-950  h-full flex items-center rounded-lg justify-center">
       <div className="text-center">
-        <div className="flex items-center justify-center w-20 h-20 mx-auto mb-3 rounded-full bg-slate-900 sm:w-22 sm:h-22">
+        <div className="flex items-center justify-center w-20 h-20 mx-auto mb-3 rounded-full bg-slate-900 sm:w-23 sm:h-23">
           <svg
             viewBox="0 0 64 64"
             id="fill"
             xmlns="http://www.w3.org/2000/svg"
             fill="#000000"
+            className="w-14"
           >
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g

@@ -62,7 +62,7 @@ function CardGraphics() {
     };
 
     const configPie = {
-      type: "pie",
+      type: "doughnut",
       data: dataPie,
       options: {
         plugins: {

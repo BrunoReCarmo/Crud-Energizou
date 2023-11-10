@@ -3,9 +3,7 @@ import { Rotas } from "./routes";
 
 function App() {
   return (
-    <div className="bg-slate-800 h-screen">
       <Rotas />
-    </div>
   );
 }
 

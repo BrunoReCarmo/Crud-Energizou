@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../api";
 
 export function PrivateRoute({ children }) {
     const [authenticated, setAuthenticated] = useState(false);
-    const history = useNavigate();
+    const pushTo = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -35,5 +35,5 @@ export function PrivateRoute({ children }) {
         checkTokenValidity();
     }, []);
 
-    return authenticated ? children : history("/login");
+    return authenticated ? children : pushTo("/login");
 }

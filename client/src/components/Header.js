@@ -3,11 +3,22 @@ import {
   Flex,
   HStack,
   Text,
+  useBreakpointValue,
+  Icon,
+  IconButton,
   Button,
 } from "@chakra-ui/react";
 import React from "react";
+import { FiMenu } from "react-icons/fi";
+import { useSidebarContext } from "../context";
 
 const Header = () => {
+  const isMobile = useBreakpointValue({
+    base: true,
+    lg: false,
+  });
+
+  const { onOpen } = useSidebarContext();
 
   const handleLogout = () => {
     //Se apertar Logout => Apaga Token no Local Storage
@@ -29,6 +40,15 @@ const Header = () => {
       color="gray.300"
       fontWeight="bold"
     >
+          {isMobile && (
+        <IconButton
+          icon={<Icon as={FiMenu} />}
+          onClick={onOpen}
+          variant="unstyled"
+          fontSize="20"
+          mr="2"
+        ></IconButton>
+      )}
       <Text>CorpHub</Text>
       <Flex ml="auto">
         <HStack>

@@ -4,7 +4,7 @@ import { routes } from "../api";
 
 export function PrivateRoute({ children }) {
     const [authenticated, setAuthenticated] = useState(false);
-    const pushTo = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -22,18 +22,21 @@ export function PrivateRoute({ children }) {
                         setAuthenticated(true);
                     } else {
                         setAuthenticated(false);
+                        navigate("/");
                     }
                 } catch (error) {
                     console.error("Erro ao validar o token", error);
                     setAuthenticated(false);
+                    navigate("/")
                 }
             } else {
                 setAuthenticated(false);
+                navigate("/");
             }
         };
 
         checkTokenValidity();
-    }, []);
+    }, [navigate]);
 
-    return authenticated ? children : pushTo("/login");
+    return authenticated ? children : null;
 }

@@ -9,6 +9,7 @@ export function Rotas() {
                 <Route path="/" element={<Login />} />
                 <Route path="/dashboard" element={<PrivateRoute><Home /></PrivateRoute>} />
                 <Route path="/cadastro" element={<PrivateRoute><Cadastro /></PrivateRoute>} />
+                <Route path="*" element={<PrivateRoute><Home /></PrivateRoute>} />
             </Routes>
         </BrowserRouter>
     )

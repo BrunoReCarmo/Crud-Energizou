@@ -4,15 +4,16 @@ import {
   HStack,
   Text,
   Button,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import React from "react";
 
 const Header = () => {
-  const isMobile = useBreakpointValue({
-    base: true,
-    lg: false,
-  });
+
+  const handleLogout = () => {
+    //Se apertar Logout => Apaga Token no Local Storage
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
 
   return (
     <Flex
@@ -32,7 +33,9 @@ const Header = () => {
       <Flex ml="auto">
         <HStack>
           <SettingsIcon mr="2" />
-          <Button bg="rgb(15 23 42)" color="red">Logout</Button>
+          <Button bg="rgb(15 23 42)" color="red" onClick={handleLogout}>
+            Logout
+          </Button>
         </HStack>
       </Flex>
     </Flex>

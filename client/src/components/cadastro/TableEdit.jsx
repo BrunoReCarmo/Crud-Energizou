@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { routes } from "../../api";
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import { DeleteIcon, EditIcon, Search2Icon } from "@chakra-ui/icons";
 import {
   TableContainer,
   TableCaption,
@@ -216,10 +216,11 @@ function TableEdit() {
         value={searchTerm}
         onChange={handleSearch}
         placeholder="Pesquisar..."
-        m={4}
-        w="40%"
+        m={{ base: 1, md: 1 }}
+        w={{ base: "85%", md: "45%" }}
         color="gray.50"
       />
+      <Search2Icon color="white" boxSize={5} ml="2" />
       <div className="bg-slate-900 mt-5 rounded-lg">
         <TableContainer p="5">
           <Table overflow="hidden" maxH="100%">
